@@ -13,35 +13,32 @@
 #   https://class.coursera.org/getdata-005/forum/thread?thread_id=23
 #-----------------------------------------------------------------------   
 run_analysis <- function()  {
-    
-    # set the working directory
-    setwd("C:/Users/sball56/Documents/Courses/Data Science track/Getting and Cleaning Data/Project1/UCI HAR Dataset")
-    
+       
     #-----------------------------------------------------------------------
     # TEST Data
     #-----------------------------------------------------------------------
     
     # read test subjects
-    subject_test <- read.table("./test/subject_test.txt", quote="\"")
+    subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", quote="\"")
     
     # read test features
-    X_test  <- read.table("./test/X_test.txt", quote="\"")
+    X_test  <- read.table("./UCI HAR Dataset/test/X_test.txt", quote="\"")
     
     # read test labels
-    y_test  <- read.table("./test/y_test.txt", quote="\"")
+    y_test  <- read.table("./UCI HAR Dataset/test/y_test.txt", quote="\"")
     
     #-----------------------------------------------------------------------
     # TRAINING Data
     #-----------------------------------------------------------------------    
     
     # read training subjects
-    subject_train <- read.table("./train/subject_train.txt", quote="\"")
+    subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", quote="\"")
     
     # read training features
-    X_train <- read.table("./train/X_train.txt", quote="\"")
+    X_train <- read.table("./UCI HAR Dataset/train/X_train.txt", quote="\"")
     
     #read training labels
-    y_train  <- read.table("./train/y_train.txt", quote="\"")
+    y_train  <- read.table("./UCI HAR Dataset/train/y_train.txt", quote="\"")
     
     #-----------------------------------------------------------------------   
     # MERGE
@@ -69,7 +66,7 @@ run_analysis <- function()  {
     #----------------------------------------------------------------------- 
     # descriptive activity names to name the activities in the data set
     #----------------------------------------------------------------------- 
-    activity_labels <- read.csv("activity_labels.txt", header=FALSE, sep=" ")    
+    activity_labels <- read.csv("./UCI HAR Dataset/activity_labels.txt", header=FALSE, sep=" ")    
     y_all$activityDesc <- factor(y_all$activity, labels=activity_labels[,2])
     
     
@@ -117,7 +114,7 @@ stdANDmean <- function() {
     
     library(sqldf)
     
-    features <- read.table("features.txt", quote="\"")
+    features <- read.table("./UCI HAR Dataset/features.txt", quote="\"")
     colnames(features) <- c("featureNumber", "featureName")
     
     selectedFeatures <- sqldf("select * from features where featureName like '%std()%' OR featureName like '%mean()%' ")
