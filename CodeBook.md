@@ -21,11 +21,10 @@ subject
         an integer assigned to each individual
 ``` 
    
-   
-```
+
 The rest of the columns are all Continuous type variables an can be any fractional number (e.g. 1.23543 or -0.6447456).  
 The columns are all averages of the accelerometer and gyroscope signals collected from smartphones. 
-```
+
    
 tBodyAcc.mean.X  
 tBodyAcc.mean.Y  
